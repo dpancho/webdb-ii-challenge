@@ -46,4 +46,10 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(500).json({ message: 'Failed to delete car' }))
 })
 
+router.delete('/', (req, res) => {
+    db('cars').delete()
+    .then(car => res.status(200).json(car))
+    .catch(err => res.status(500).json({ message: 'Failed to delete car' }))
+})
+
 module.exports = router; 
